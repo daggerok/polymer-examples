@@ -1,0 +1,23 @@
+<link rel="import" href="../../../../vendors/polymer/polymer.html">
+
+<dom-module id="one-way-binding">
+  <template>
+    <p>One way data binging</p>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'one-way-binding',
+    properties: {
+      leftShow: {
+        type: Boolean,
+        value: true,
+      },
+      rightShow: {
+        type: Boolean,
+        value: true,
+      },
+    },
+  });
+</script>
