@@ -25,17 +25,16 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 0-template; do
+    for path in 01-data-binging \
+                0-template; do
 
-      export TARGET="$ROOT/$path";
-      cd $TARGET;
-      yarn install;
-      if [ -f npm-debug.log ]; then cat npm-debug.log; fi;
-      npm outdate
-      yarn upgrade
+      export TARGET="$ROOT/$path"
+      cd $TARGET
+      ls -lah
+      yarn predeploy
+      if [ -f npm-debug.log ]; then cat npm-debug.log; fi
       ncu -u
-      rm -rf yarn.lock
-      yarn install
+      yarn upgrade
 
     done;
 

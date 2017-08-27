@@ -1,0 +1,1 @@
+= data binging image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
