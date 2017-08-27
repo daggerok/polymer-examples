@@ -1,0 +1,3 @@
+= polymer examples image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
+
+link:https://www.polymer-project.org/2.0/start/[docs]

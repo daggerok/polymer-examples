@@ -3,3 +3,4 @@
 This repository is contains some Polymer playground project examples
 
 . link:01-data-binging/[data binging]
+. link:02-computed-properties/[computed properties]

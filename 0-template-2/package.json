@@ -3,11 +3,8 @@
   "version": "0.0.0",
   "main": "./backend-server/app.js",
   "license": "MIT",
-  "dependencies": {
-    "@types/polymer": "^1.2.1",
-    "express": "4.15.4"
-  },
   "devDependencies": {
+    "@types/polymer": "^1.2.1",
     "@types/express": "4.0.37",
     "@types/node": "8.0.25",
     "babel-cli": "6.26.0",
@@ -19,16 +16,22 @@
     "gh-pages": "1.0.0",
     "ncp": "2.0.0",
     "nodemon": "1.11.0",
-    "npm-run-all": "4.1.0"
+    "npm-run-all": "4.1.0",
+    "polymer-cli": "1.5.2"
+  },
+  "config": {
+    "bower_directory": "bower_components"
   },
   "scripts": {
-    "postinstall": "bower install Polymer/polymer@2.0.0",
-    "start": "nodemon ./backend-server/index.js --watch . --ignore node_modules",
+    "postinstall": "polymer install",
+    "start": "polymer serve",
     "predeploy": "yarn install && npm-run-all predeploy:*",
-    "predeploy:bash-pre": "bash ./gh-pages-deployment/predeploy.bash ./index.html",
-    "predeploy:404-html": "ncp ./index.html ./404.html",
-    "deploy": "gh-pages --dist ./ --src '{app/**,bower_components/**,.nojekyll,404.html,favicon.ico,index.html}' --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\"",
-    "postdeploy": "bash ./gh-pages-deployment/postdeploy.bash ./index.html"
+    "predeploy:build": "polymer build",
+    "predeploy:bash-pre": "bash ./gh-pages-deployment/predeploy.bash ./build/default/index.html",
+    "predeploy:404-html": "ncp ./build/default/index.html ./build/default/404.html",
+    "predeploy:.nojekyll": "ncp .nojekyll ./build/default/.nojekyll",
+    "predeploy:static": "ncp ./static ./build/default/static",
+    "deploy": "gh-pages --dist ./build/default --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\""
   },
   "babel": {
     "presets": [

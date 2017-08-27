@@ -25,12 +25,13 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 01-data-binging \
+    for path in 02-computed-properties \
+                01-data-binging \
+                0-template-2 \
                 0-template; do
 
       export TARGET="$ROOT/$path"
       cd $TARGET
-      ls -lah
       yarn predeploy
       if [ -f npm-debug.log ]; then cat npm-debug.log; fi
       ncu -u

@@ -1,0 +1,6 @@
+= computed properties image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
+
+TODO...
+
+link:https://www.polymer-project.org/1.0/docs/devguide/events[events]
+link:https://www.polymer-project.org/1.0/docs/devguide/observers[computed]
