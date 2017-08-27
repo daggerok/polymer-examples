@@ -1,13 +1,21 @@
 <link rel="import" href="../vendors/polymer/polymer.html">
+<link rel="import" href="components/data-binding/one-way-binding/one-way-binding.html">
+<link rel="import" href="components/data-binding/one-way-binding/js-two-way-binding.html">
+<link rel="import" href="components/data-binding/one-way-binding/read-only-one-way-binding.html">
+<link rel="import" href="components/data-binding/two-way-binding/two-way-binding.html">
 
-<dom-module id="app-header">
+<dom-module id="main-app">
   <template>
-    <hi>Hello, Polymer</hi>
+    <h1>Hello, Polymer</h1>
+    <one-way-binding></one-way-binding>
+    <js-two-way-binding></js-two-way-binding>
+    <two-way-binding></two-way-binding>
+    <read-only-one-way-binding></read-only-one-way-binding>
   </template>
 </dom-module>
 
 <script>
   Polymer({
-    is: "app-header"
+    is: 'main-app'
   });
 </script>
