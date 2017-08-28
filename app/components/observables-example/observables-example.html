@@ -28,6 +28,10 @@
         type: Boolean,
         value: false,
       },
+      prev: {
+        type: String,
+        value: 'none',
+      },
     },
     observers: [
       'updateOddOrEven(num)',
@@ -36,20 +40,27 @@
       if (e.preventDefault) e.preventDefault();
       this.num = Date.now();
     },
-    _computeOddOrEven: function computeOddOrEven(num) {
+    calc: function calc(num) {
       return num % 2 === 0 ? 'even' : 'odd';
     },
+    _computeOddOrEven: function computeOddOrEven(num) {
+      return this.calc(num);
+    },
     updateOddOrEven: function updateOddOrEven(num) {
-      /*
-        this.async(function() {
-          this.num = num;
-        }, 300);
-      */
-      const message = 'changed from' + this.num + 'to' + num;
-      const newOddOrEven = this._computeOddOrEven(num);
-      if (this.oddOrEven === newOddOrEven) return;
-      window.Materialize.toast(message, 6000, 'rounded');
-      this.oddOrEven = newOddOrEven;
+      const curr = this.calc(num);
+      if (!this.prev || this.prev === curr) return;
+      const message = 'changed from "' + this.prev + '" to "' + curr + '"';
+      window.Materialize.toast(message, 5000);
+      this.prev = curr;
     },
   });
 </script>
+
+<style>
+  .toast {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;
+  }
+</style>
