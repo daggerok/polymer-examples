@@ -2,7 +2,7 @@
   <template>
     <h4>Computed property (refresh).</h4>
     <p>Could be re-rendered via js, computed properties and observables.</p>
-    <input type="button" class="btn" value="Test" on-click="onClick">
+    <input type="button" on-click="onClick">
     <div id$="{{ oddOrEven }}">
       result: [[ oddOrEven ]]
     </div>
@@ -23,13 +23,14 @@
       oddOrEven: {
         type: String,
         computed: '_computeOddOrEven(num)',
-      }
+      },
     },
     onClick: function onTap(e) {
       if (e.preventDefault) e.preventDefault();
       this.num = Date.now();
     },
     _computeOddOrEven: function computeOddOrEven(num) {
+      console.log(num, num % 2);
       return num % 2 === 0 ? 'even' : 'odd';
     },
   });
