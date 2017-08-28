@@ -39,7 +39,8 @@
       containing(prop, searchCriteria) {
         if (!searchCriteria) return null;
         const lower = searchCriteria.toLowerCase();
-        return !!prop && prop.indexOf(lower) !== -1;
+        return !!prop && prop.includes(lower);
+        // return !!prop && prop.indexOf(lower) !== -1;
       }
     }
 
