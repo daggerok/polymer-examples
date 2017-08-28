@@ -1,0 +1,48 @@
+<!-- -- import template repeater ----><link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+
+<dom-module id="dom-if-example">
+  <template>
+    <h2>dom-if example:</h2>
+
+    <div>contains o:</div>
+    <template is="dom-repeat" items="[[ props ]]" as="p">
+      <div>
+        <template is="dom-if" if="{{containing(p, 'o')}}">
+          item [[ index ]]: [[ p ]] has 'o': {{containing(p, 'o')}}
+        </template>
+      </div>
+    </template>
+  </template>
+
+  <script>
+    class DomIfExample extends Polymer.Element {
+      static get is() {
+        return 'dom-if-example';
+      }
+
+      static get properties() {
+        return {
+          props: {
+            type: Array,
+            value: () => [
+              'one',
+              'two',
+              'three',
+              'four',
+              'five',
+            ],
+          },
+        };
+      }
+
+      containing(prop, searchCriteria) {
+        if (!searchCriteria) return null;
+        const lower = searchCriteria.toLowerCase();
+        return !!prop && prop.indexOf(lower) !== -1;
+      }
+    }
+
+    window.customElements.define(DomIfExample.is, DomIfExample);
+  </script>
+</dom-module>
