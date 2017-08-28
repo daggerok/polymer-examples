@@ -2,7 +2,7 @@
   <template>
     <h4>Observables</h4>
     <p>Could be re-rendered via js, computed properties and triggered using observables:</p>
-    <input type="button" class="btn" value="Test" on-click="onClick">
+    <input type="button" class="btn btn-primary" value="Test" on-click="onClick">
     <div id$="{{ oddOrEven }}">
       result: [[ oddOrEven ]]
     </div>
@@ -55,12 +55,3 @@
     },
   });
 </script>
-
-<style>
-  .toast {
-    top: auto !important;
-    right: auto !important;
-    bottom: 10%;
-    left:7%;
-  }
-</style>
