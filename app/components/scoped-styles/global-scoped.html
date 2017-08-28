@@ -1,0 +1,15 @@
+<!-- global scoped styles -->
+<link rel="stylesheet" href="out-styles.css">
+
+<dom-module id="global-scoped">
+  <template>
+    <h4>Global scoped</h4>
+    <div class="row in-global-scoped">
+      <content select=".in-global-scoped"></content>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({ is: 'global-scoped', });
+</script>
