@@ -1,9 +1,18 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="components/core-icons-01.html">
+<link rel="import" href="components/custom-icons.html">
 
 <dom-module id="main-app">
   <template>
+    <iron-icon style="height: 100%; width: 100%" icon="custom-icons:ololo"></iron-icon>
     <core-icons-01></core-icons-01>
+
+    <style>
+      iron-icon {
+        fill: #4a7ad3;
+      }
+    </style>
   </template>
 
   <script>

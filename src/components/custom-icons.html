@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/iron-iconset-svg/iron-iconset-svg.html">
+
+<iron-iconset-svg name="custom-icons" size="128">
+  <svg>
+    <defs>
+      <g id="ololo">
+        <circle class="c3" cx="31" cy="73" r="25"></circle>
+        <circle cx="21" cy="37.4" r="12"></circle>
+        <circle cx="75" cy="64" r="20"></circle>
+        <rect class="r1" x="33" y="8" width="30" height="40"></rect>
+        <circle cx="83" cy="25" r="20"></circle>
+      </g>
+    </defs>
+  </svg>
+</iron-iconset-svg>
+
+  <script>
+    class CustomIcons extends Polymer.Element {
+      static get is() {
+        return 'custom-icons';
+      }
+    }
+
+    window.customElements.define(CustomIcons.is, CustomIcons);
+  </script>
+
