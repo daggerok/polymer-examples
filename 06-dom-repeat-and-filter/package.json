@@ -25,8 +25,9 @@
   "scripts": {
     "postinstall": "polymer install",
     "start": "polymer serve",
+    "build": "polymer build",
     "predeploy": "yarn install && npm-run-all predeploy:*",
-    "predeploy:build": "polymer build",
+    "predeploy:build": "yarn build",
     "predeploy:bash-pre": "bash ./gh-pages-deployment/predeploy.bash ./build/default/index.html",
     "predeploy:404-html": "ncp ./build/default/index.html ./build/default/404.html",
     "predeploy:.nojekyll": "ncp .nojekyll ./build/default/.nojekyll",
