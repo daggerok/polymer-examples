@@ -1,0 +1,36 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="components/dom-repeat-element.html">
+<link rel="import" href="components/dom-repeat-filter.html">
+
+<dom-module id="main-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+    <dom-repeat-element></dom-repeat-element>
+    <dom-repeat-filter></dom-repeat-filter>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class MainApp extends Polymer.Element {
+      static get is() { return 'main-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'main-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MainApp.is, MainApp);
+  </script>
+</dom-module>

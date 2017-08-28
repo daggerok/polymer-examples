@@ -1,0 +1,35 @@
+<!-- -- import template repeater ----><link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+
+<dom-module id="dom-repeat-element">
+  <template>
+    <h2>dom-repeat:</h2>
+    <pre>[[ props ]]</pre>
+    <template is="dom-repeat" items="[[ props ]]">
+      <div>[[ index ]] item: [[ item ]]</div>
+    </template>
+  </template>
+
+  <script>
+    class DomRepeat extends Polymer.Element {
+      static get is() {
+        return 'dom-repeat-element';
+      }
+      static get properties() {
+        return {
+          props: {
+            type: Array,
+            value: () => [
+              'one',
+              'two',
+              'three',
+              'four',
+              'five',
+            ],
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DomRepeat.is, DomRepeat);
+  </script>
+</dom-module>
