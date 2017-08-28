@@ -6,3 +6,5 @@ This repository is contains some Polymer playground project examples
 . link:02-computed-properties/[computed properties]
 . link:03-observables/[observables]
 . link:04-content/[content]
+. link:05-scoped-styles/[component-scoped and global scoped styling]
+

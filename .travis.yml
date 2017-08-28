@@ -25,7 +25,8 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 04-content \
+    for path in 05-scoped-styles \
+                04-content \
                 03-observables \
                 02-computed-properties \
                 01-data-binging \

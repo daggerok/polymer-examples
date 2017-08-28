@@ -1,0 +1,36 @@
+<!--<link rel="import" href="../../../../node_modules/Polymer/polymer.html">-->
+
+<dom-module id="two-way-binding">
+  <template>
+    <h4>Two way data binging (using <code>::input</code> and <code>notify</code>)</h4>
+    <div>Update input field does change showing value:</div>
+    <div>
+      <span>Left html value</span>
+      <input value="{{ leftShow::input }}">
+      <div>Left html value: {{ leftShow }}</div>
+    </div>
+    <div>
+      <span>Right html value</span>
+      <input value="{{ rightShow::input }}">
+      <div>Right html value: {{ rightShow }}</div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'two-way-binding',
+    properties: {
+      leftShow: {
+        type: Boolean,
+        value: true,
+        notify: true,
+      },
+      rightShow: {
+        type: Boolean,
+        value: true,
+        notify: true,
+      },
+    },
+  });
+</script>

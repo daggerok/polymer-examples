@@ -1,0 +1,29 @@
+<!--<link rel="import" href="../../../../node_modules/Polymer/polymer.html">-->
+
+<dom-module id="read-only-one-way-binding">
+  <template>
+    <h4>Read only one way data binging</h4>
+    <span>Left html value</span>
+    <input id="leftInput" value="{{ leftShow }}" on-change="onClick"> <span>press enter to apply update</span>
+    <div>Input fields via JS must updated showing value: {{ leftShow }}</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'read-only-one-way-binding',
+    properties: {
+      leftShow: {
+        type: Boolean,
+        value: true,
+        readOnly: true,
+      },
+    },
+    onClick: function onTap(e) {
+      // const el = e.target.previousElementSibling;
+      const el = e.target;
+      this.leftShow = el.value;
+      el.value = '';
+    },
+  });
+</script>

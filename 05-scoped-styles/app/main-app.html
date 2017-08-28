@@ -1,0 +1,32 @@
+<link rel="import" href="../node_modules/Polymer/polymer.html">
+<link rel="import" href="components/scoped-styles/component-scoped.html">
+<link rel="import" href="components/scoped-styles/global-scoped.html">
+
+<dom-module id="main-app">
+  <template>
+    <h1>Hello, Polymer</h1>
+    <component-scoped>
+      <div class="in-component-scoped">in component-scoped in</div>
+    </component-scoped>
+    <global-scoped>
+      <div class="in-global-scoped">in global-scoped in</div>
+    </global-scoped>
+    <div class="out-component-scoped">out component-scoped out</div>
+    <div class="out-global-scoped">out global-scoped out</div>
+    <div class="in-component-scoped">in component-scoped out</div>
+    <div class="in-global-scoped">in global-scoped out</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'main-app'
+  });
+</script>
+
+<style>
+  main-app {
+    padding: 5%;
+    margin: 0;
+  }
+</style>
