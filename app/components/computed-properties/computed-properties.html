@@ -1,0 +1,53 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="computed-properties">
+  <template>
+    <h4>Computed property (refresh).</h4>
+    <p>Could be re-rendered via js, computed properties and observables.</p>
+    <input type="button" on-click="onClick">
+    <div id$="{{ oddOrEven }}">
+      result: [[ oddOrEven ]]
+    </div>
+    <div id$="{{num}}">
+      num: {{ num }}
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'computed-properties',
+    properties: {
+      num: {
+        type: Number,
+        value: Date.now(),
+      },
+      oddOrEven: {
+        type: String,
+        computed: '_computeOddOrEven(num)',
+      },
+    },
+    observers: [
+      'updateOddOrEven(num)',
+    ],
+    onClick: function onTap(e) {
+      if (e.preventDefault) e.preventDefault();
+      this.num = Date.now();
+    },
+    _computeOddOrEven: function computeOddOrEven(num) {
+      console.log(num, num % 2);
+      return num % 2 === 0 ? 'even' : 'odd';
+    },
+    updateOddOrEven: function updateOddOrEven(num) {
+      console.log('changed from', this.num, 'to', num);
+      /*
+      this.async(function() {
+        this.num = num;
+      }, 300);
+      */
+      const newOddOrEven = this._computeOddOrEven(num);
+      if (this.oddOrEven === newOddOrEven) return;
+      this.oddOrEven = newOddOrEven;
+    },
+  });
+</script>

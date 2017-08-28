@@ -1,0 +1,28 @@
+<link rel="import" href="../../../../bower_components/polymer/polymer.html">
+
+<dom-module id="js-two-way-binding">
+  <template>
+    <h4>JS two way data binging</h4>
+    <span>Left html value</span>
+    <input id="leftInput" value="{{ leftShow }}" on-change="onClick"> <span>press enter to apply update</span>
+    <div>Input fields via JS must updated showing value: {{ leftShow }}</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'js-two-way-binding',
+    properties: {
+      leftShow: {
+        type: Boolean,
+        value: true,
+      },
+    },
+    onClick: function onTap(e) {
+      // const el = e.target.previousElementSibling;
+      const el = e.target;
+      this.leftShow = el.value;
+      el.value = '';
+    },
+  });
+</script>
