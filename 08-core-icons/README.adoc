@@ -1,0 +1,17 @@
+= iron-icons (core-icons) image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
+
+. link:https://www.webcomponents.org/element/PolymerElements/iron-icons[polymer iron-icon]
+. link:https://www.youtube.com/watch?v=jrt7sMq9lO0&index=64&list=PLNYkxOF6rcIDdS7HWIC_BYRunV6MHs5xo[whatch]
+
+[source,bash]
+bower install PolymerElements/iron-icons
+
+[source,html]
+----
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="core-icons-01">
+  <template>
+    <iron-icon icon="android"></iron-icon>
+    ...
+----

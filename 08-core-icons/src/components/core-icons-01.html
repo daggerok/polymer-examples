@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="core-icons-01">
+  <template>
+    <style>
+      .smaller {
+        width: 20%;
+        height: 20%;
+        color: dodgerblue;
+      }
+      .bigger {
+        width: 70%;
+        height: 70%;
+        color: #2ecc40;
+      }
+    </style>
+
+    <h2>core-icons</h2>
+    <iron-icon style="color: gray" icon="polymer"></iron-icon>
+    <iron-icon class="bigger" icon="android"></iron-icon>
+    <iron-icon class="smaller" icon="cloud"></iron-icon>
+  </template>
+
+  <script>
+    class CoreIcons01 extends Polymer.Element {
+      static get is() {
+        return 'core-icons-01';
+      }
+    }
+
+    window.customElements.define(CoreIcons01.is, CoreIcons01);
+  </script>
+</dom-module>
