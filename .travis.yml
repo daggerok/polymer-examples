@@ -25,7 +25,8 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 02-computed-properties \
+    for path in 03-observables \
+                02-computed-properties \
                 01-data-binging \
                 0-template-2 \
                 0-template; do

@@ -1,0 +1,57 @@
+<dom-module id="observables-example">
+  <template>
+    <h4>Observables</h4>
+    <p>Could be re-rendered via js, computed properties and triggered using observables:</p>
+    <input type="button" class="btn btn-primary" value="Test" on-click="onClick">
+    <div id$="{{ oddOrEven }}">
+      result: [[ oddOrEven ]]
+    </div>
+    <div id$="{{num}}">
+      num: {{ num }}
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'observables-example',
+    properties: {
+      num: {
+        type: Number,
+        value: Date.now(),
+      },
+      oddOrEven: {
+        type: String,
+        computed: '_computeOddOrEven(num)',
+      },
+      initialized: {
+        type: Boolean,
+        value: false,
+      },
+      prev: {
+        type: String,
+        value: 'none',
+      },
+    },
+    observers: [
+      'updateOddOrEven(num)',
+    ],
+    onClick: function onTap(e) {
+      if (e.preventDefault) e.preventDefault();
+      this.num = Date.now();
+    },
+    calc: function calc(num) {
+      return num % 2 === 0 ? 'even' : 'odd';
+    },
+    _computeOddOrEven: function computeOddOrEven(num) {
+      return this.calc(num);
+    },
+    updateOddOrEven: function updateOddOrEven(num) {
+      const curr = this.calc(num);
+      if (!this.prev || this.prev === curr) return;
+      const message = 'changed from "' + this.prev + '" to "' + curr + '"';
+      window.Materialize.toast(message, 5000, 'rounded');
+      this.prev = curr;
+    },
+  });
+</script>
