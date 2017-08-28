@@ -50,7 +50,7 @@
       const curr = this.calc(num);
       if (!this.prev || this.prev === curr) return;
       const message = 'changed from "' + this.prev + '" to "' + curr + '"';
-      window.Materialize.toast(message, 5000);
+      window.Materialize.toast(message, 5000, 'rounded');
       this.prev = curr;
     },
   });
