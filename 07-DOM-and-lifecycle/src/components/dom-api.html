@@ -1,0 +1,22 @@
+<dom-module id="dom-api">
+  <template>
+    <h2>DOM API</h2>
+    <div></div>
+  </template>
+
+  <script>
+    class DomApi extends Polymer.Element {
+      static get is() {
+        return 'dom-api';
+      }
+      static get properties() {}
+      ready() {
+        const div = Polymer.dom(this.root).querySelector('div');
+        div.textContent = 'DOM API ready!';
+        this.textContent = div.textContent;
+      }
+    }
+
+    window.customElements.define(DomApi.is, DomApi);
+  </script>
+</dom-module>

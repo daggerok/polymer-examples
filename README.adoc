@@ -7,5 +7,5 @@ This repository is contains some Polymer playground project examples
 . link:03-observables/[observables]
 . link:04-content/[content]
 . link:05-scoped-styles/[component-scoped and global scoped styling]
-. link:06-dom-repeat-and-filter/[docm-repeat and filter]
-
+. link:06-dom-repeat-and-filter/[doc-repeat and filter]
+. link:07-DOM-and-lifecycle/[DOM API and lifecycle]

@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="components/lifecycle-example.html">
+<link rel="import" href="components/dom-api.html">
+
+<dom-module id="main-app">
+  <template>
+    <lifecycle-example></lifecycle-example>
+    <dom-api></dom-api>
+  </template>
+
+  <script>
+    class MainApp extends Polymer.Element {
+      static get is() { return 'main-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'main-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MainApp.is, MainApp);
+  </script>
+</dom-module>

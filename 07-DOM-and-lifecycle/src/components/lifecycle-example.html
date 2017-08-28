@@ -1,0 +1,32 @@
+<dom-module id="lifecycle-example">
+  <template>
+    <h2>Lifecycle</h2>
+  </template>
+
+  <script>
+    class LifecycleExample extends Polymer.Element {
+      static get is() {
+        return 'lifecycle-example';
+      }
+      static get properties() {}
+      ready() {
+        console.log('ready');
+        this.textContent = 'Lifecycle ready!';
+      }
+      attributeChanged(name, type) {
+        console.log(this.id, 'attributeChanged', name, type);
+      }
+      detached() {
+        console.log(this.id, 'detached');
+      }
+      attached() {
+        console.log(this.id, 'attached');
+      }
+      created() {
+        console.log(this.id, 'created');
+      }
+    }
+
+    window.customElements.define(LifecycleExample.is, LifecycleExample);
+  </script>
+</dom-module>
