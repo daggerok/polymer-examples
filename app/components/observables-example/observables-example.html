@@ -1,0 +1,55 @@
+<dom-module id="observables-example">
+  <template>
+    <h4>Observables.</h4>
+    <p>Could be re-rendered via js, computed properties and observables.</p>
+    <input type="button" on-click="onClick">
+    <div id$="{{ oddOrEven }}">
+      result: [[ oddOrEven ]]
+    </div>
+    <div id$="{{num}}">
+      num: {{ num }}
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'observables-example',
+    properties: {
+      num: {
+        type: Number,
+        value: Date.now(),
+      },
+      oddOrEven: {
+        type: String,
+        computed: '_computeOddOrEven(num)',
+      },
+      initialized: {
+        type: Boolean,
+        value: false,
+      },
+    },
+    observers: [
+      'updateOddOrEven(num)',
+    ],
+    onClick: function onTap(e) {
+      if (e.preventDefault) e.preventDefault();
+      this.num = Date.now();
+    },
+    _computeOddOrEven: function computeOddOrEven(num) {
+      return num % 2 === 0 ? 'even' : 'odd';
+    },
+    updateOddOrEven: function updateOddOrEven(num) {
+      /*
+        this.async(function() {
+          this.num = num;
+        }, 300);
+      */
+      const message = 'changed from' + this.num + 'to' + num;
+      const newOddOrEven = this._computeOddOrEven(num);
+      if (this.oddOrEven === newOddOrEven) return;
+      window.Materialize.toast(message, 6000, 'rounded');
+      this.oddOrEven = newOddOrEven;
+    },
+  });
+</script>
