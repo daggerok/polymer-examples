@@ -4,6 +4,8 @@
   <template>
     <h2>dom-repeat filter:</h2>
 
+    <h4>static filters</h4>
+
     <div>starts with t:</div>
     <template is="dom-repeat" items="[[ props ]]" as="prop" filter="startsWithT">
       <div>[[ index ]] item: [[ prop ]]</div>
@@ -13,6 +15,8 @@
     <template is="dom-repeat" items="[[ props ]]" as="prop" filter="startsWithF">
       <div>[[ index ]] item: [[ prop ]]</div>
     </template>
+
+    <h4>dynamic filters</h4>
 
     <input value="{{searchCriteria::input}}">
     <div>starts with {{ searchCriteria }}:</div>
