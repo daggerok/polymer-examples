@@ -25,7 +25,8 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 10-iron-pages \
+    for path in 11-auto-binding \
+                10-iron-pages \
                 09-toolbar \
                 08-core-icons \
                 07-DOM-and-lifecycle \

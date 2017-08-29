@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Auto binding | polymer examples</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="./components/elements.html">
+  <link rel="import" href="./components/styles.html">
+</head>
+<body class="fullbleed vertical layout">
+<iron-pages selected="0">
+  <section>
+    <h1>One</h1>
+    <div>page 1 content</div>
+  </section>
+  <section>
+    <h1>Two</h1>
+    <div>page 2 content</div>
+  </section>
+  <section>
+    <h1>Three</h1>
+    <div>page 3 content</div>
+  </section>
+</iron-pages>
+
+<!-- Wrap elements with auto-binding template to -->
+<!-- allow use of Polymer bindings in main document -->
+<dom-bind>
+  <template id="app">
+    <!-- Note the data property which gets sets below -->
+    <template is="dom-repeat" items="{{data}}">
+      <div>{{item.name}}: {{item.price}}</div>
+    </template>
+  </template>
+</dom-bind>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('click', () => {
+
+      const pages = document.querySelector('iron-pages');
+      pages.selectNext();
+
+      var autoBind = document.querySelector('dom-bind');
+
+      // set data property on dom-bind
+      autoBind.data = [
+        { name: 'book', price: '$5.00' },
+        { name: 'pencil', price: '$1.00' },
+        { name: 'flux capacitor', price: '$8,000,000.00' }
+      ];
+    });
+  });
+</script>
+</body>
+</html>
