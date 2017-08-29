@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>Toolbar | Polymer examples</title>
-  <link rel="stylesheet" href="app/app.css">
+  <title>App | Polymer examples</title>
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
   <link rel="import" href="bower_components/polymer/polymer-element.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
@@ -21,60 +21,62 @@
   <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
   <link rel="import" href="bower_components/app-layout/app-layout.html">
   <link rel="import" href="bower_components/app-layout/demo/sample-content.html">
+
+  <custom-style>
+    <style is="custom-style">
+      html,
+      body {
+        margin: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background: #f1f1f1;
+        max-height: 368px;
+      }
+
+      app-toolbar {
+        background-color: #4285f4;
+        color: #fff;
+      }
+
+      paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      paper-icon-button + [main-title] {
+        margin-left: 24px;
+      }
+
+      paper-progress {
+        display: block;
+        width: 100%;
+        --paper-progress-active-color: rgba(255, 255, 255, 0.5);
+        --paper-progress-container-color: transparent;
+      }
+
+      app-header {
+        @apply --layout-fixed-top;
+        color: #fff;
+        --app-header-background-rear-layer: {
+          background-color: #ef6c00;
+        };
+      }
+
+      app-drawer {
+        --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+        --app-drawer-content-container: {
+          background-color: #B0BEC5;
+        }
+      }
+
+      sample-content {
+        padding-top: 64px;
+      }
+    </style>
+  </custom-style>
+
 </head>
 <body fullbleed>
-<custom-style>
-  <style is="custom-style">
-    html,
-    body {
-      margin: 0;
-      font-family: 'Roboto', 'Noto', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      background: #f1f1f1;
-      max-height: 368px;
-    }
 
-    app-toolbar {
-      background-color: #4285f4;
-      color: #fff;
-    }
-
-    paper-icon-button {
-      --paper-icon-button-ink-color: white;
-    }
-
-    paper-icon-button + [main-title] {
-      margin-left: 24px;
-    }
-
-    paper-progress {
-      display: block;
-      width: 100%;
-      --paper-progress-active-color: rgba(255, 255, 255, 0.5);
-      --paper-progress-container-color: transparent;
-    }
-
-    app-header {
-      @apply --layout-fixed-top;
-      color: #fff;
-      --app-header-background-rear-layer: {
-        background-color: #ef6c00;
-      };
-    }
-
-    app-drawer {
-      --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
-      --app-drawer-content-container: {
-        background-color: #B0BEC5;
-      }
-    }
-
-    sample-content {
-      padding-top: 64px;
-    }
-
-  </style>
-</custom-style>
 <app-header reveals>
   <app-toolbar>
     <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
@@ -86,7 +88,7 @@
   </app-toolbar>
 </app-header>
 <app-drawer id="drawer" swipe-open></app-drawer>
-<sample-content size="10"></sample-content>
 
+<sample-content size="10"></sample-content>
 </body>
 </html>
