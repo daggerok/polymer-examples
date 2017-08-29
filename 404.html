@@ -8,72 +8,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <title>App | Polymer examples</title>
+
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
-  <link rel="import" href="bower_components/polymer/polymer-element.html">
-  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-  <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
-  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
-  <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
-  <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
-  <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
-  <link rel="import" href="bower_components/app-layout/app-layout.html">
-  <link rel="import" href="bower_components/app-layout/demo/sample-content.html">
+  <link rel="import" href="components/elements.html">
 
-  <custom-style>
-    <style is="custom-style">
-      html,
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        background: #f1f1f1;
-        max-height: 368px;
-      }
-
-      app-toolbar {
-        background-color: #4285f4;
-        color: #fff;
-      }
-
-      paper-icon-button {
-        --paper-icon-button-ink-color: white;
-      }
-
-      paper-icon-button + [main-title] {
-        margin-left: 24px;
-      }
-
-      paper-progress {
-        display: block;
-        width: 100%;
-        --paper-progress-active-color: rgba(255, 255, 255, 0.5);
-        --paper-progress-container-color: transparent;
-      }
-
-      app-header {
-        @apply --layout-fixed-top;
-        color: #fff;
-        --app-header-background-rear-layer: {
-          background-color: #ef6c00;
-        };
-      }
-
-      app-drawer {
-        --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
-        --app-drawer-content-container: {
-          background-color: #B0BEC5;
-        }
-      }
-
-      sample-content {
-        padding-top: 64px;
-      }
-    </style>
-  </custom-style>
-
+  <link rel="import" href="components/styles.html">
 </head>
 <body fullbleed>
 
