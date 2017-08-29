@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Iron pages | polymer examples</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="./components/elements.html">
+  <link rel="import" href="./components/styles.html">
+</head>
+<body class="fullbleed vertical layout">
+<iron-pages selected="0">
+  <section>
+    <h1>One</h1>
+    <div>page 1 content</div>
+  </section>
+  <section>
+    <h1>Two</h1>
+    <div>page 2 content</div>
+  </section>
+  <section>
+    <h1>Three</h1>
+    <div>page 3 content</div>
+  </section>
+</iron-pages>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', () => {
+      const ironPages = document.querySelector('iron-pages');
+      ironPages.selectNext();
+    });
+  });
+</script>
+</body>
+</html>

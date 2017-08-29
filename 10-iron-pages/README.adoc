@@ -1,0 +1,5 @@
+= iron-pages image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
+
+. link:https://elements.polymer-project.org/guides/flex-layout[fullbleed vertical layout]
+. link:https://www.webcomponents.org/element/PolymerElements/iron-pages[iron-pages]
+. link:https://polymerelements.github.io/app-layout/[app layout]
