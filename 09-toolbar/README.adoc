@@ -1,0 +1,3 @@
+= toolbar: app-layout component image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
+
+link:https://www.webcomponents.org/element/PolymerElements/app-layout[toolbar: app-layout component]

@@ -10,3 +10,4 @@ This repository is contains some Polymer playground project examples
 . link:06-dom-repeat-and-filter/[doc-repeat and filter]
 . link:07-DOM-and-lifecycle/[DOM API and lifecycle]
 . link:08-core-icons/[core icon(s)]
+. link:09-toolbar/[toolbar: app-layout component]

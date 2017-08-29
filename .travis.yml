@@ -25,7 +25,9 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 07-DOM-and-lifecycle \
+    for path in 09-toolbar \
+                08-core-icons \
+                07-DOM-and-lifecycle \
                 06-dom-repeat-and-filter \
                 05-scoped-styles \
                 04-content \
