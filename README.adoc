@@ -14,4 +14,5 @@ This repository is contains some Polymer playground project examples
 . link:10-polymer-app-1/[some app]
 . link:11-auto-binding/[auto binding]
 //. link:12-routing/[app route (imperative: js)]
-. link:13-PWA/[PWA (Progressive Web Apps)]
+. link:13-PWA-responsive/[Progressive Web Apps: Responsive]
+. link:14-PWA-load-fast/[Progressive Web Apps: Load Fast]

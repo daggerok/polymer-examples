@@ -25,7 +25,8 @@ before_script:
 script:
   - export ROOT=$PWD
   - >
-    for path in 13-PWA \
+    for path in 14-PWA-load-fast \
+                13-PWA-responsive \
                 11-auto-binding \
                 10-iron-pages \
                 09-toolbar \
