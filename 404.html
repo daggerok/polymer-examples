@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>App routing | polymer examples</title>
+  <title>PWA | Polymer examples</title>
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
   <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
   <link rel="import" href="./components/elements.html">
@@ -15,60 +15,32 @@
 </head>
 <body class="fullbleed vertical layout">
 
-<app-header reveals>
-  <app-toolbar>
-    <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
-    <div main-title>My app</div>
-    <paper-icon-button icon="delete"></paper-icon-button>
-    <paper-icon-button icon="search"></paper-icon-button>
-    <paper-icon-button icon="close"></paper-icon-button>
-    <paper-progress value="10" indeterminate bottom-item></paper-progress>
-  </app-toolbar>
-</app-header>
-<app-drawer id="drawer" swipe-open></app-drawer>
+<app-header-layout>
+  <app-header reveals>
+    <app-toolbar>
+      <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
+    </app-toolbar>
 
-<iron-pages selected="0">
-  <section>
-    <h1>One</h1>
-    <div>page 1 content</div>
-  </section>
+    <app-toolbar>
+      <div main-title>PWA APP</div>
+      <paper-icon-button icon="search"></paper-icon-button>
+      <paper-progress value="100" indeterminate bottom-item></paper-progress>
+    </app-toolbar>
+  </app-header>
+</app-header-layout>
 
-  <section>
-    <h1>Two</h1>
-    <!-- Wrap elements with auto-binding template to -->
-    <!-- allow use of Polymer bindings in main document -->
-    <dom-bind>
-      <template id="app">
-        <!-- Note the data property which gets sets below -->
-        <template is="dom-repeat" items="{{data}}">
-          <div>{{item.name}}: {{item.price}}</div>
-        </template>
-      </template>
-    </dom-bind>
-  </section>
+<app-drawer id="drawer" swipe-open>
+  aside content
+</app-drawer>
 
-  <section>
-    <h1>Three</h1>
-    <sample-content size="10"></sample-content>
-  </section>
-</iron-pages>
+<main>
+  <p>site content</p>
+  <sample-content size="10"></sample-content>
+</main>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener('click', () => {
-
-      const pages = document.querySelector('iron-pages');
-      pages.selectNext();
-
-      const autoBind = document.querySelector('dom-bind');
-      // set data property on dom-bind
-      autoBind.data = [
-        { name: 'Polymer', price: !Polymer.Element ? '1.x' : '2.x' },
-        { name: 'book', price: '$5.00' },
-        { name: 'pencil', price: '$1.00' },
-        { name: 'flux capacitor', price: '$8,000,000.00' }
-      ];
-    });
+    //
   });
 </script>
 </body>
