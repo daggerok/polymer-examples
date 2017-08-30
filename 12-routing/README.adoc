@@ -1,3 +1,5 @@
 = imperative routing (js) image:https://travis-ci.org/daggerok/polymer-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/polymer-examples"]
 
+TODO: in progress...
+
 . link:https://www.polymer-project.org/2.0/docs/devguide/templates[dom-bind (auto-binding)]

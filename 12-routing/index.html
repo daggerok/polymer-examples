@@ -15,39 +15,72 @@
 </head>
 <body class="fullbleed vertical layout">
 
+<!-- app-location binds to the app's URL -->
+<!-- provides two-way data binding -->
+<app-location route="{{route}}"></app-location>
+<!--<app-location route="{{route}}" use-hash-as-path></app-location>-->
+
+<!-- this app-route manages the top-level routes -->
+<app-route route="{{route}}"
+           pattern="/:page"
+           data="{{data}}"
+           tail="{{tail}}"></app-route>
+
 <app-header reveals>
   <app-toolbar>
     <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
     <div main-title>My app</div>
-    <paper-icon-button icon="delete"></paper-icon-button>
-    <paper-icon-button icon="search"></paper-icon-button>
-    <paper-icon-button icon="close"></paper-icon-button>
+
+    <a href="/one">
+      <paper-icon-button icon="delete"></paper-icon-button>
+    </a>
+    <a href="/two">
+      <paper-icon-button icon="search"></paper-icon-button>
+    </a>
+    <a href="/three">
+      <paper-icon-button icon="close"></paper-icon-button>
+    </a>
+    <!--
+    <a href="/one"><paper-icon-button icon="delete"></paper-icon-button></a>
+    <a href="/two"><paper-icon-button icon="search"></paper-icon-button></a>
+    <a href="/three"><paper-icon-button icon="close"></paper-icon-button></a>
+    -->
     <paper-progress value="10" indeterminate bottom-item></paper-progress>
   </app-toolbar>
 </app-header>
 <app-drawer id="drawer" swipe-open></app-drawer>
 
-<iron-pages selected="0">
-  <section>
+<!-- iron-pages selects the view based on the active route -->
+<iron-pages id="pageSelector"
+            role="main"
+            selected="[[data.page]]"
+            attr-for-selected="data-page"
+            fallback-selection="two"
+            selected-attribute="route"
+            selected-attribute-value="{{tail}}">
+
+  <section data-page="one">
     <h1>One</h1>
     <div>page 1 content</div>
+    <!--<main-nav></main-nav>-->
   </section>
 
-  <section>
+  <section data-page="two">
     <h1>Two</h1>
     <!-- Wrap elements with auto-binding template to -->
     <!-- allow use of Polymer bindings in main document -->
     <dom-bind>
       <template id="app">
         <!-- Note the data property which gets sets below -->
-        <template is="dom-repeat" items="{{data}}">
+        <template is="dom-repeat" items="{{d}}">
           <div>{{item.name}}: {{item.price}}</div>
         </template>
       </template>
     </dom-bind>
+    <!--<main-nav></main-nav>-->
   </section>
 
-  <section>
+  <section data-page="three">
     <h1>Three</h1>
     <sample-content size="10"></sample-content>
   </section>
@@ -55,14 +88,18 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+/*
+    window.history.pushState({}, null, '/three');
+    window.dispatchEvent(new CustomEvent('location-changed'));
+*/
     document.addEventListener('click', () => {
 
-      const pages = document.querySelector('iron-pages');
-      pages.selectNext();
+//      const pages = document.querySelector('iron-pages');
+//      pages.selectNext();
 
       const autoBind = document.querySelector('dom-bind');
       // set data property on dom-bind
-      autoBind.data = [
+      autoBind.d = [
         { name: 'Polymer', price: !Polymer.Element ? '1.x' : '2.x' },
         { name: 'book', price: '$5.00' },
         { name: 'pencil', price: '$1.00' },
