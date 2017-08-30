@@ -23,7 +23,7 @@
     "predeploy": "yarn install && npm-run-all predeploy:*",
     "predeploy:prefix": "bash ./gh-pages-deployment/predeploy.bash ./index.html",
     "predeploy:404": "ncp ./index.html ./404.html",
-    "deploy": "gh-pages --dist ./ --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\" --src '{bower_components/**,components/**,.nojekyll,404.html,favicon.ico,index.html}'",
+    "deploy": "gh-pages --dist ./ --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\" --src '{bower_components/**,app/**,.nojekyll,404.html,favicon.ico,index.html}'",
     "postdeploy": "bash ./gh-pages-deployment/postdeploy.bash ./index.html"
   },
   "babel": {
