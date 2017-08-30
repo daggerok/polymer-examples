@@ -9,13 +9,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <title>PWA Load Fast | Polymer examples</title>
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
-  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-  <link rel="import" href="./app/elements.html">
+  <link rel="import" href="./app/elements.html" async>
   <link rel="import" href="./app/styles.html">
 </head>
 <body class="fullbleed vertical layout">
 
-<app-header-layout>
+<app-header-layout unresolved="">
   <app-header reveals>
     <app-toolbar>
       <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
@@ -37,11 +36,7 @@
   <p>site content</p>
   <sample-content size="10"></sample-content>
 </main>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    //
-  });
-</script>
+<!--<link rel="stylesheet" href="./bower_components/webcomponentsjs/webcomponents-loader.js" async>-->
+<script src="./app/bootstrap.js" async></script>
 </body>
 </html>

@@ -16,7 +16,8 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "fonts"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#2.0.0",
@@ -26,7 +27,8 @@
     "iron-icons": "2.0.1",
     "iron-pages": "2.0.0",
     "paper-icon-button": "2.0.1",
-    "paper-progress": "2.0.1"
+    "paper-progress": "2.0.1",
+    "materialize": "0.100.2"
   },
   "resolutions": {
     "polymer": "1.9 - 2",
