@@ -1,35 +1,55 @@
-var webComponentsAreSupported =
-  ('registerElement' in document)
-  && ('import' in document.createElement('link'))
-  && ('content' in document.createElement('template'));
+window['daggerok.app.DEBUG'] = true;
 
-console.log('webComponentsAreSupported', webComponentsAreSupported);
+(function bootstrap() {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded');
-});
+  const DEBUG = window['daggerok.app.DEBUG'];
+  const debug = (...content) => {
+    if (DEBUG) console.log(...content);
+  };
 
-document.addEventListener('load', () => {
-  console.log('load');
-});
+  const webComponentsAreSupported = () =>
+    ('registerElement' in document)
+    && ('import' in document.createElement('link'))
+    && ('content' in document.createElement('template'));
 
-// app main entry point must be here:
-function finalizeLazyLoading() {
-  console.log('bootstrapping app...');
-  // do some...
-  console.log('app bootstrapped');
-}
+  function finalizeLazyLoading() {
+    debug('finalizing lazy loading...');
 
-if (!webComponentsAreSupported) {
+    const template = document.createElement('template');
 
-  var script = document.createElement('script');
+    template.innerHTML = `
+      <style>
+      :host {
+        
+      }
+      </style>
+    `;
 
-  script.async = true;
-  script.src = './bower_components/webcomponentsjs/webcomponents-loader.js';
-  script.onload = finalizeLazyLoading;
-  document.head.appendChild(script);
-  console.log('polyfills where added.');
+    class MyElement extends HTMLElement {
 
-}
+    }
 
-finalizeLazyLoading();
+    window.customElements.define('my-element', MyElement);
+
+    debug('lazy loading finalized');
+  }
+
+  debug('web components are supported', webComponentsAreSupported());
+  document.addEventListener('load', e => debug('load document'), false);
+  document.addEventListener('DOMContentLoaded', e => debug('DOM content loaded'), false);
+
+  if (!webComponentsAreSupported()) {
+
+    const script = document.createElement('script');
+
+    script.async = true;
+    script.src = './bower_components/webcomponentsjs/webcomponents-loader.js';
+    script.onload = finalizeLazyLoading;
+    document.head.appendChild(script);
+    debug('polyfills where added');
+  }
+
+  finalizeLazyLoading();
+
+})();
