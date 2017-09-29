@@ -16,10 +16,7 @@ document.addEventListener('load', () => {
 // app main entry point must be here:
 function finalizeLazyLoading() {
   console.log('bootstrapping app...');
-
-  var appHeaderLayout = document.querySelector('app-header-layout[unresolved=""]');
-  if (appHeaderLayout.hasAttribute('unresolved')) delete appHeaderLayout.removeAttribute('unresolved');
-
+  // do some...
   console.log('app bootstrapped');
 }
 
@@ -33,7 +30,6 @@ if (!webComponentsAreSupported) {
   document.head.appendChild(script);
   console.log('polyfills where added.');
 
-} else {
-
-  finalizeLazyLoading();
 }
+
+finalizeLazyLoading();

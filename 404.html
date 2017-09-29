@@ -13,30 +13,10 @@
   <link rel="import" href="./app/styles.html">
 </head>
 <body class="fullbleed vertical layout">
-
-<app-header-layout unresolved="">
-  <app-header reveals>
-    <app-toolbar>
-      <paper-icon-button icon="menu" onclick="drawer.toggle();"></paper-icon-button>
-    </app-toolbar>
-
-    <app-toolbar>
-      <div main-title>PWA | Load Fast</div>
-      <paper-icon-button icon="search"></paper-icon-button>
-      <paper-progress value="100" indeterminate bottom-item></paper-progress>
-    </app-toolbar>
-  </app-header>
-</app-header-layout>
-
-<app-drawer id="drawer" swipe-open>
-  aside content
-</app-drawer>
-
 <main>
   <p>site content</p>
   <sample-content size="10"></sample-content>
 </main>
-<!--<link rel="stylesheet" href="./bower_components/webcomponentsjs/webcomponents-loader.js" async>-->
 <script src="./app/bootstrap.js" async></script>
 </body>
 </html>
