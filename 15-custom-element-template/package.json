@@ -1,0 +1,50 @@
+{
+  "name": "polymer-examples",
+  "version": "0.0.0",
+  "main": "./index.html",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "1.8.2",
+    "gh-pages": "1.0.0",
+    "livereload": "0.6.2",
+    "ncp": "2.0.0",
+    "npm-run-all": "4.1.1",
+    "rimraf": "2.6.2",
+    "serve": "6.1.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "yarn -i; npm-run-all -p start:*",
+    "start:serve": "serve -C -p 8080 -s .",
+    "start:livereload": "livereload",
+    "predeploy": "yarn install && npm-run-all predeploy:*",
+    "predeploy:bash": "bash ./gh-pages-deployment/predeploy.bash ./index.html",
+    "predeploy:404": "ncp ./index.html ./404.html",
+    "deploy": "gh-pages --dist ./ --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\" --src '{bower_components/**,app/**,.nojekyll,404.html,favicon.ico,index.html}'",
+    "postdeploy": "npm-run-all -p postdeploy:*",
+    "postdeploy:bash": "bash ./gh-pages-deployment/postdeploy.bash ./index.html",
+    "postdeploy:rimraf": "rimraf -rf ./404.html *-e"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      "env"
+    ],
+    "plugins": [
+      "add-module-exports",
+      "syntax-dynamic-import"
+    ]
+  },
+  "livereload": {
+    "exclusions": [
+      "*bower_components*",
+      "*node_modules*",
+      "*package-lock.json",
+      "*yarn.lock"
+    ]
+  },
+  "description": "Polymer examples",
+  "author": "Maksim Kostromin <daggerok@gmail.com>",
+  "homepage": "https://daggerok.github.io/polymer-examples",
+  "repository": "https://github.com/daggerok/polymer-examples.git"
+}
